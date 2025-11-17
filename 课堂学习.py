@@ -13,7 +13,7 @@ from openai import OpenAI
 
 def judge_level(text):
     client = OpenAI(
-        api_key='sk-936242915d75420da091a89165b07921',
+        api_key=st.secrets['OPENAI_API_KEY'],
         base_url="https://api.deepseek.com")
 
     response = client.chat.completions.create(
@@ -59,5 +59,6 @@ if st.button('开始分析'): #表示用户按了这个键
                     st.success(f'调整后的语句是:**{result}**')
             except Exception as e :#展示报错的具体信息
                 st.error('出错了,请稍后重试😒')
+
 
 
